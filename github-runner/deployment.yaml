@@ -23,8 +23,10 @@ spec:
                 secretKeyRef:
                   name: github-runner-secret
                   key: GITHUB_ACCESS_TOKEN
-            - name: REPO_URL
-              value: "https://github.com/samylegalloudec/"
+            - name: RUNNER_SCOPE
+              value: "org"
+            - name: ORG_NAME
+              value: "samylegalloudec"   # seulement si c'est une ORG (pas un user)
             - name: RUNNER_NAME
               value: "rke2-runner"
             - name: RUNNER_WORKDIR
