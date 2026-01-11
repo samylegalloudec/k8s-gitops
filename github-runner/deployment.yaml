@@ -23,23 +23,18 @@ spec:
                 secretKeyRef:
                   name: github-runner-secret
                   key: GITHUB_ACCESS_TOKEN
+
             - name: RUNNER_SCOPE
-              value: "org"
-            - name: ORG_NAME
-              value: "samylegalloudec"   # seulement si c'est une ORG (pas un user)
+              value: "repo"
+            - name: REPO_URL
+              value: "https://github.com/samylegalloudec/habit-rewards"
+
             - name: RUNNER_NAME
               value: "rke2-runner"
             - name: RUNNER_WORKDIR
               value: "/tmp/github-runner"
             - name: LABELS
               value: "self-hosted,rke2"
-          resources:
-            requests:
-              memory: "256Mi"
-              cpu: "250m"
-            limits:
-              memory: "512Mi"
-              cpu: "1000m"
           volumeMounts:
             - name: workdir
               mountPath: /tmp/github-runner
